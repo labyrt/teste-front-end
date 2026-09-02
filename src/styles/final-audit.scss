@@ -1,0 +1,84 @@
+/*
+ * Final visual QA refinements.
+ * These rules preserve the 1440px Figma calibration while fixing the last
+ * measurable category-frame and responsive inconsistencies found in review.
+ */
+
+/* Figma neutral surface used by the inactive category tiles. */
+.category-card {
+  line-height: 21px;
+}
+
+.category-card__icon {
+  background: #f8f8f8;
+}
+
+/* Figma footer legal strip is slightly darker than the page background. */
+.footer__bottom {
+  background: #f4f4f4;
+}
+
+/* Home 11602:16: categories frame starts at y=573 and is exactly 171px high. */
+@media (min-width: 1181px) {
+  .categories__rail {
+    height: 171px;
+    align-items: flex-start;
+  }
+
+  .category-card {
+    height: 171px;
+  }
+
+  .category-card__icon {
+    margin-bottom: 22px;
+    background: #f8f8f8;
+  }
+
+  .category-card.is-active .category-card__icon {
+    background: #fff;
+  }
+}
+
+/* Responsive QA: the hero must become shorter as the viewport gets smaller. */
+@media (max-width: 900px) {
+  .hero {
+    height: 320px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .hero p {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: 280px;
+  }
+
+  .hero__content {
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .hero h1 {
+    width: 95%;
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .hero p {
+    margin: 14px 0 0;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .hero .button {
+    margin-top: 18px;
+  }
+}
