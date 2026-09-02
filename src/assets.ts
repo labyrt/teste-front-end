@@ -18,7 +18,7 @@ export const assets = {
   shield: `${CHALLENGE_ASSETS}/icon-shield.svg`,
   truck: `${CHALLENGE_ASSETS}/icon-truck.svg`,
   creditCard: `${UI_ASSETS}/credit-card.svg`,
-  group: `${UI_ASSETS}/group.svg`,
+  wallet: `${CHALLENGE_ASSETS}/icon-wallet.svg`,
   heart: `${CHALLENGE_ASSETS}/icon-heart.svg`,
   user: `${CHALLENGE_ASSETS}/icon-user.svg`,
   cart: `${CHALLENGE_ASSETS}/icon-cart.svg`,
