@@ -4,6 +4,7 @@ import App from './App';
 import './styles/main.scss';
 import './styles/pixel-perfect.scss';
 import './styles/final-audit.scss';
+import './styles/runtime-fidelity.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
