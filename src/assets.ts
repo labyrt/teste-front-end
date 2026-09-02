@@ -1,5 +1,5 @@
-const CHALLENGE_ASSETS = 'https://raw.githubusercontent.com/williamsimass/econverse-vitrine/main/src/assets';
-const UI_ASSETS = 'https://raw.githubusercontent.com/Epiled/econverse/main/src/assets/svg/icons-ui';
+const CHALLENGE_ASSETS = 'https://raw.githubusercontent.com/williamsimass/econverse-vitrine/81fb84c4e45b4c41c0953b378fcebccaf432c7c5/src/assets';
+const UI_ASSETS = 'https://raw.githubusercontent.com/Epiled/econverse/7d420e578586f2aa54174064812281e46eec9e2e/src/assets/svg/icons-ui';
 
 export const assets = {
   logo: `${CHALLENGE_ASSETS}/logo-econverse.svg`,
