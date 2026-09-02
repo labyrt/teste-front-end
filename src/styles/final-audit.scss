@@ -19,7 +19,7 @@
 }
 
 /* Home 11602:16: categories frame starts at y=573 and is exactly 171px high. */
-@media (min-width: 1181px) {
+@media (min-width: 1400px) {
   .categories__rail {
     height: 171px;
     align-items: flex-start;
@@ -36,6 +36,211 @@
 
   .category-card.is-active .category-card__icon {
     background: #fff;
+  }
+}
+
+/*
+ * The pixel-perfect stylesheet is calibrated from the 1440px Figma frame.
+ * Between tablet and that desktop reference, neutralize its fixed 1280px
+ * geometry so notebooks do not gain horizontal overflow or overlapping UI.
+ */
+@media (min-width: 1181px) and (max-width: 1399px) {
+  .header-main {
+    position: static;
+    display: grid;
+    height: 72px;
+    grid-template-columns: 145px minmax(360px, 1fr) auto;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .brand,
+  .search-field,
+  .header-actions {
+    position: static;
+  }
+
+  .brand img {
+    width: 139px;
+    height: auto;
+  }
+
+  .search-field {
+    width: auto;
+    height: 48px;
+  }
+
+  .header-actions {
+    width: auto;
+    justify-self: end;
+  }
+
+  .category-nav__scroll.shell {
+    width: min(1280px, calc(100% - 32px));
+    margin-inline: auto;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .categories__rail {
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 42px;
+    transform: none;
+  }
+
+  .category-card,
+  .category-card:nth-child(3) {
+    width: auto;
+    height: auto;
+    min-width: 0;
+  }
+
+  .category-card__icon {
+    margin-bottom: 17px;
+  }
+
+  .section-title,
+  .product-section--with-tabs .section-title {
+    width: auto;
+    height: auto;
+    grid-template-columns: minmax(80px, 1fr) auto minmax(80px, 1fr);
+    margin-left: 0;
+    margin-bottom: 16px;
+  }
+
+  .section-title > span {
+    width: 100%;
+  }
+
+  .section-title h2 {
+    width: auto;
+    height: auto;
+  }
+
+  .product-tabs {
+    width: 100%;
+    transform: none;
+  }
+
+  .product-tabs button {
+    font-size: 12px;
+  }
+
+  .product-carousel,
+  .product-section:not(.product-section--with-tabs) .product-carousel {
+    height: auto;
+    padding-top: 0;
+  }
+
+  .product-rail {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    padding: 3px 6px 14px;
+  }
+
+  .carousel-arrow {
+    top: 50%;
+  }
+
+  .carousel-arrow--prev {
+    left: -16px;
+  }
+
+  .carousel-arrow--next {
+    right: -16px;
+  }
+
+  .partners.shell {
+    width: min(1280px, calc(100% - 32px));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    transform: none;
+  }
+
+  .partner-card {
+    width: auto;
+  }
+
+  .brands.shell {
+    width: min(1280px, calc(100% - 32px));
+    transform: none;
+  }
+
+  .brands__rail {
+    display: flex;
+    width: 100%;
+    gap: 25px;
+    margin-left: 0;
+    padding-bottom: 10px;
+    overflow-x: auto;
+  }
+
+  .newsletter__inner {
+    position: static;
+    display: grid;
+    height: auto;
+    min-height: 162px;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+    gap: 52px;
+  }
+
+  .newsletter__copy,
+  .newsletter__form {
+    position: static;
+    width: auto;
+  }
+
+  .newsletter__copy h2 {
+    height: auto;
+  }
+
+  .newsletter__fields {
+    grid-template-columns: 1fr 1fr 130px;
+  }
+
+  .newsletter__fields .button {
+    width: auto;
+  }
+
+  .footer__main {
+    position: static;
+    display: grid;
+    height: auto;
+    min-height: 282px;
+    grid-template-columns: 300px 1px 1fr;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .footer__about,
+  .footer__divider,
+  .footer__links {
+    position: static;
+  }
+
+  .footer__about {
+    width: 300px;
+    height: auto;
+  }
+
+  .footer__about p {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer__divider {
+    width: 1px;
+    height: 198px;
+  }
+
+  .footer__links {
+    width: auto;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 36px;
   }
 }
 
