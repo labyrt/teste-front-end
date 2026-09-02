@@ -5,6 +5,7 @@ export const assets = {
   logo: `${CHALLENGE_ASSETS}/logo-econverse.svg`,
   hero: `${CHALLENGE_ASSETS}/banner-hero.webp`,
   partner: `${CHALLENGE_ASSETS}/banner-parceiros.webp`,
+  chevron: `${CHALLENGE_ASSETS}/icon-chevron.svg`,
   categories: {
     tecnologia: `${CHALLENGE_ASSETS}/cat-tecnologia.png`,
     supermercado: `${CHALLENGE_ASSETS}/cat-supermercado.png`,
