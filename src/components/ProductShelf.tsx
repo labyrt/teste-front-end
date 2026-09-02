@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { assets } from '../assets';
 import type { Product } from '../types/product';
 
 interface ProductShelfProps {
@@ -28,16 +29,19 @@ export default function ProductShelf({
   const railRef = useRef<HTMLDivElement>(null);
 
   function scroll(direction: -1 | 1) {
-    railRef.current?.scrollBy({ left: direction * 330, behavior: 'smooth' });
+    railRef.current?.scrollBy({ left: direction * 322, behavior: 'smooth' });
   }
 
   return (
-    <section className="product-section shell" id={showTabs ? 'produtos' : undefined}>
+    <section
+      className={`product-section shell${showTabs ? ' product-section--with-tabs' : ''}`}
+      id={showTabs ? 'produtos' : undefined}
+    >
       <header className="section-title">
         <span aria-hidden="true" />
         <div>
           <h2>Produtos relacionados</h2>
-          <a href="#produtos">Ver todos</a>
+          {!showTabs && <a href="#produtos">Ver todos</a>}
         </div>
         <span aria-hidden="true" />
       </header>
@@ -60,7 +64,7 @@ export default function ProductShelf({
 
       <div className="product-carousel">
         <button className="carousel-arrow carousel-arrow--prev" type="button" onClick={() => scroll(-1)} aria-label="Produtos anteriores">
-          ‹
+          <img src={assets.chevron} alt="" aria-hidden="true" />
         </button>
 
         <div className="product-rail" ref={railRef}>
@@ -93,7 +97,7 @@ export default function ProductShelf({
         </div>
 
         <button className="carousel-arrow carousel-arrow--next" type="button" onClick={() => scroll(1)} aria-label="Próximos produtos">
-          ›
+          <img src={assets.chevron} alt="" aria-hidden="true" />
         </button>
       </div>
     </section>
