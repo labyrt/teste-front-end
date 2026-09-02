@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Product, ProductsPayload } from '../types/product';
 
-const PRODUCTS_URL =
-  'https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
+const PRODUCTS_URL = import.meta.env.VITE_PRODUCTS_URL ?? '/api/produtos.json';
 
 function normalizeProducts(payload: ProductsPayload): Product[] {
   const list = Array.isArray(payload)
@@ -31,10 +30,21 @@ export function useProducts() {
     async function load() {
       try {
         setLoading(true);
-        const response = await fetch(PRODUCTS_URL, { signal: controller.signal });
+        setError(null);
+
+        const response = await fetch(PRODUCTS_URL, {
+          signal: controller.signal,
+          headers: { Accept: 'application/json' },
+        });
+
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
         const payload = (await response.json()) as ProductsPayload;
-        setProducts(normalizeProducts(payload));
+        const normalized = normalizeProducts(payload);
+
+        if (!normalized.length) throw new Error('A lista de produtos veio vazia.');
+
+        setProducts(normalized);
       } catch (err) {
         if (controller.signal.aborted) return;
         setError(err instanceof Error ? err.message : 'Erro ao carregar produtos');
