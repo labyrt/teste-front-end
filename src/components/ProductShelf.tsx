@@ -1,0 +1,101 @@
+import { useRef } from 'react';
+import type { Product } from '../types/product';
+
+interface ProductShelfProps {
+  products: Product[];
+  loading?: boolean;
+  error?: string | null;
+  showTabs?: boolean;
+  onProductClick: (product: Product) => void;
+}
+
+const tabs = ['celular', 'acessórios', 'tablets', 'NOTEBOOKS', 'TVs', 'Ver todos'];
+
+function currency(value: number) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(value);
+}
+
+export default function ProductShelf({
+  products,
+  loading = false,
+  error = null,
+  showTabs = false,
+  onProductClick,
+}: ProductShelfProps) {
+  const railRef = useRef<HTMLDivElement>(null);
+
+  function scroll(direction: -1 | 1) {
+    railRef.current?.scrollBy({ left: direction * 330, behavior: 'smooth' });
+  }
+
+  return (
+    <section className="product-section shell" id={showTabs ? 'produtos' : undefined}>
+      <header className="section-title">
+        <span aria-hidden="true" />
+        <div>
+          <h2>Produtos relacionados</h2>
+          <a href="#produtos">Ver todos</a>
+        </div>
+        <span aria-hidden="true" />
+      </header>
+
+      {showTabs && (
+        <div className="product-tabs" role="tablist" aria-label="Categorias da vitrine">
+          {tabs.map((tab, index) => (
+            <button
+              key={tab}
+              type="button"
+              className={index === 0 ? 'is-active' : ''}
+              role="tab"
+              aria-selected={index === 0}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className="product-carousel">
+        <button className="carousel-arrow carousel-arrow--prev" type="button" onClick={() => scroll(-1)} aria-label="Produtos anteriores">
+          ‹
+        </button>
+
+        <div className="product-rail" ref={railRef}>
+          {loading && Array.from({ length: 4 }).map((_, index) => <div className="product-card product-card--skeleton" key={index} />)}
+
+          {!loading && error && (
+            <div className="product-state" role="status">
+              Não foi possível carregar a vitrine agora. Tente novamente em instantes.
+            </div>
+          )}
+
+          {!loading && !error && products.slice(0, 8).map((product) => {
+            const oldPrice = product.price * 1.07;
+            return (
+              <article className="product-card" key={product.id}>
+                <button className="product-card__click" type="button" onClick={() => onProductClick(product)} aria-label={`Ver ${product.productName}`}>
+                  <span className="product-card__photo">
+                    <img src={product.photo} alt={product.productName} loading="lazy" />
+                  </span>
+                  <span className="product-card__description">{product.descriptionShort}</span>
+                </button>
+                <span className="product-card__old-price">{currency(oldPrice)}</span>
+                <strong className="product-card__price">{currency(product.price)}</strong>
+                <span className="product-card__installment">ou 2x de {currency(product.price / 2)} sem juros</span>
+                <span className="product-card__shipping">Frete grátis</span>
+                <button className="product-card__buy" type="button" onClick={() => onProductClick(product)}>Comprar</button>
+              </article>
+            );
+          })}
+        </div>
+
+        <button className="carousel-arrow carousel-arrow--next" type="button" onClick={() => scroll(1)} aria-label="Próximos produtos">
+          ›
+        </button>
+      </div>
+    </section>
+  );
+}
