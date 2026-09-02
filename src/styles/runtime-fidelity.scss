@@ -1,0 +1,46 @@
+/*
+ * Runtime fidelity fixes.
+ * These rules cover browser defaults that otherwise diverge from the exact
+ * Figma typography even when the geometric measurements are already correct.
+ */
+
+/* Header benefit copy: Figma uses Poppins Medium 12/18. */
+.benefit {
+  font-weight: 500;
+  line-height: 18px;
+}
+
+/* The reference frame does not define a translated/filtered CTA hover state. */
+.button:hover {
+  filter: none;
+  transform: none;
+}
+
+/* Popup 11602:1453 — normalize browser defaults to the Figma text metrics. */
+.product-modal h2 {
+  margin: 0;
+  line-height: 20px;
+}
+
+.product-modal__content > div:first-child > strong {
+  display: block;
+  margin-top: 18px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.product-modal__description p {
+  font-weight: 500;
+}
+
+.product-modal__description a {
+  display: inline-block;
+  line-height: 11px;
+}
+
+/* Keep the 16px close glyph centered in the 32px Figma interaction box. */
+.product-modal__close {
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+}
