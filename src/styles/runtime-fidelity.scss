@@ -4,10 +4,25 @@
  * Figma typography even when the geometric measurements are already correct.
  */
 
-/* Header benefit copy: Figma uses Poppins Medium 12/18. */
+/* Header benefit copy: Figma uses Poppins Medium 12/18 and SemiBold emphasis. */
 .benefit {
   font-weight: 500;
   line-height: 18px;
+}
+
+.benefit strong {
+  font-weight: 600;
+}
+
+/* Search placeholder: Figma uses Poppins Medium 14. */
+.search-field input,
+.search-field input::placeholder {
+  font-weight: 500;
+}
+
+/* Active category label is SemiBold rather than Bold. */
+.category-card.is-active {
+  font-weight: 600;
 }
 
 /* The reference frame does not define a translated/filtered CTA hover state. */
