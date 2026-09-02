@@ -76,13 +76,21 @@ export default function ProductShelf({
             </div>
           )}
 
-          {!loading && !error && products.slice(0, 8).map((product) => {
+          {!loading && !error && products.slice(0, 8).map((product, index) => {
             const oldPrice = product.price * 1.07;
+            const isInitiallyVisible = index < 4;
+
             return (
               <article className="product-card" key={product.id}>
                 <button className="product-card__click" type="button" onClick={() => onProductClick(product)} aria-label={`Ver ${product.productName}`}>
                   <span className="product-card__photo">
-                    <img src={product.photo} alt={product.productName} loading="lazy" />
+                    <img
+                      src={product.photo}
+                      alt={product.productName}
+                      loading={isInitiallyVisible ? 'eager' : 'lazy'}
+                      fetchPriority={isInitiallyVisible ? 'high' : 'auto'}
+                      decoding="async"
+                    />
                   </span>
                   <span className="product-card__description">{product.descriptionShort}</span>
                 </button>
