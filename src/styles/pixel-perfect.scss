@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Poppins:wght@300&display=swap');
+
+/*
+ * Desktop calibration against Figma Home 11602:16 (1440 x 4660).
+ * main.scss keeps the responsive behavior; these rules lock the 1440px reference
+ * measurements to the design without changing the mobile/tablet adaptations.
+ */
+@media (min-width: 1181px) {
+  /* Header — Figma frame 1280 x 144, positioned at x=80 */
+  .top-benefits {
+    gap: 119px;
+  }
+
+  .header-main {
+    position: relative;
+    display: block;
+    height: 72px;
+  }
+
+  .brand {
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+
+  .brand img {
+    width: 139px;
+    height: 41.3014px;
+  }
+
+  .search-field {
+    position: absolute;
+    top: 12px;
+    left: 325px;
+    width: 630px;
+    height: 48px;
+    padding: 0 24px 0 16px;
+  }
+
+  .search-field input {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .header-actions {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 216px;
+    gap: 32px;
+    justify-content: flex-start;
+  }
+
+  .header-actions button:first-child {
+    width: 24px;
+  }
+
+  .category-nav__scroll.shell {
+    width: 1141px;
+    justify-content: flex-start;
+    gap: 91px;
+    margin-left: calc((100% - 1280px) / 2 + 69px);
+    margin-right: 0;
+  }
+
+  /* Hero — y=144, h=390 */
+  .hero__scrim {
+    background: linear-gradient(90deg, rgba(0, 0, 0, .85) 0%, rgba(0, 0, 0, .55) 45%, rgba(0, 0, 0, 0) 75%);
+  }
+
+  .hero h1 {
+    width: 822px;
+    margin: 0;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 50px;
+    letter-spacing: 0;
+  }
+
+  .hero p {
+    margin: 18px 0 0;
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  .hero .button {
+    width: 206px;
+    min-width: 206px;
+    height: 50px;
+    min-height: 50px;
+    margin-top: 24px;
+    border-radius: 8px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  /* Categories — exact 1160px rail, 6 x 128px + 1 x 140px, gap 42 */
+  .categories {
+    padding-top: 39px;
+    padding-bottom: 90px;
+  }
+
+  .categories__rail {
+    display: flex;
+    width: 1160px;
+    gap: 42px;
+    margin-inline: auto;
+    transform: translateX(-.5px);
+  }
+
+  .category-card {
+    width: 128px;
+    flex: 0 0 128px;
+    color: #4e4e4e;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .category-card:nth-child(3) {
+    width: 140px;
+    flex-basis: 140px;
+  }
+
+  .category-card__icon {
+    width: 128px;
+    height: 128px;
+    margin-bottom: 17px;
+    border-radius: 10px;
+    background: #f4f4f4;
+    box-shadow: 0 4px 11px rgba(0, 0, 0, .13);
+  }
+
+  .category-card.is-active {
+    color: #3019b2;
+    font-weight: 600;
+  }
+
+  .category-card.is-active .category-card__icon {
+    background: #fff;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, .22);
+  }
+
+  /* Product shelves — exact Figma vertical rhythm and card geometry */
+  .product-section {
+    margin-bottom: 90px;
+  }
+
+  .section-title {
+    width: 1138px;
+    grid-template-columns: 360px 350px 360px;
+    gap: 34px;
+    justify-content: initial;
+    align-items: start;
+    margin-left: 70.5px;
+    margin-bottom: 24px;
+  }
+
+  .product-section--with-tabs .section-title {
+    height: 45px;
+    margin-left: 69.5px;
+    margin-bottom: 4px;
+  }
+
+  .section-title > span {
+    width: 360px;
+    margin-top: 18px;
+    background: #dedede;
+  }
+
+  .section-title h2 {
+    width: 350px;
+    height: 45px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+  }
+
+  .section-title a {
+    margin-top: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 23px;
+  }
+
+  .product-tabs {
+    width: 1280px;
+    height: 40px;
+    min-height: 40px;
+    margin-bottom: 24px;
+    transform: translateX(-.5px);
+    border-color: #bdbdbd;
+  }
+
+  .product-tabs button {
+    height: 40px;
+    min-height: 40px;
+    border-color: #bdbdbd;
+    color: #3b3b3b;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .product-tabs button.is-active {
+    color: #3442b5;
+    font-weight: 700;
+  }
+
+  .product-carousel {
+    height: 500px;
+  }
+
+  .product-section:not(.product-section--with-tabs) .product-carousel {
+    height: 501px;
+    padding-top: .5px;
+  }
+
+  .product-rail {
+    width: 1270px;
+    height: 500px;
+    margin-left: 4.5px;
+    padding: 0;
+    gap: 18px;
+    grid-auto-columns: 304px;
+  }
+
+  .product-card {
+    width: 304px;
+    height: 500px;
+    padding: 32px 12.385px 16px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 19px rgba(0, 0, 0, .22);
+  }
+
+  .product-card__photo {
+    width: 278.104px;
+    height: 228px;
+    border-radius: 0;
+  }
+
+  .product-card__photo img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .product-card__description {
+    width: 275.852px;
+    min-height: 46px;
+    height: 46px;
+    margin: 9px 0 12px;
+    color: #3f3f40;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 23px;
+  }
+
+  .product-card__old-price {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .product-card__price {
+    margin-top: 2px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  .product-card__installment {
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .product-card__shipping {
+    margin-top: 7px;
+    color: #3442b5;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .product-card__buy {
+    width: 275.852px;
+    height: 44px;
+    min-height: 44px;
+    flex: 0 0 44px;
+    margin-top: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18.48px;
+  }
+
+  .carousel-arrow {
+    top: 262px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  }
+
+  .carousel-arrow img {
+    width: 8px;
+    height: 13px;
+  }
+
+  .carousel-arrow--prev {
+    left: -42.5px;
+  }
+
+  .carousel-arrow--next {
+    right: -42.5px;
+  }
+
+  .carousel-arrow--next img {
+    transform: rotate(180deg);
+  }
+
+  /* Partner banners — 2 x 634px, gap 13, exact text/CTA coordinates */
+  .partners.shell {
+    width: 1281px;
+    grid-template-columns: repeat(2, 634px);
+    gap: 13px;
+    margin-bottom: 90px;
+    transform: translateX(-.5px);
+  }
+
+  .partner-card {
+    width: 634px;
+    height: 350px;
+    border-radius: 20px;
+  }
+
+  .partner-card__overlay {
+    top: 89px;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .8) 85.039%);
+    border-radius: 0 0 20px 20px;
+  }
+
+  .partner-card__content {
+    display: block;
+    padding: 0;
+  }
+
+  .partner-card h2 {
+    position: absolute;
+    top: 114px;
+    left: 44.181px;
+    width: 216.488px;
+    height: 60px;
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+  }
+
+  .partner-card p {
+    position: absolute;
+    top: 182px;
+    left: 44.181px;
+    width: 199.92px;
+    height: 48px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .partner-card .button {
+    position: absolute;
+    top: 262px;
+    left: 44.181px;
+    width: 144.693px;
+    min-width: 144.693px;
+    height: 48px;
+    min-height: 48px;
+    border-radius: 6px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.28px;
+  }
+
+  /* Brands — title x=94.5, five 211px circles with 42px gaps */
+  .brands.shell {
+    width: 1250px;
+    margin-bottom: 90px;
+    transform: translateX(-.5px);
+  }
+
+  .brands h2 {
+    height: 45px;
+    margin: 0 0 32px;
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  .brands__rail {
+    width: 1223px;
+    grid-template-columns: repeat(5, 211px);
+    gap: 42px;
+    justify-content: start;
+    margin-left: 7px;
+    padding: 0;
+  }
+
+  /* Newsletter — exact 162px frame and form coordinates */
+  .newsletter__inner {
+    position: relative;
+    display: block;
+    height: 162px;
+    min-height: 162px;
+  }
+
+  .newsletter__copy {
+    position: absolute;
+    top: 40px;
+    left: .5px;
+    width: 515px;
+  }
+
+  .newsletter__copy h2 {
+    height: 38px;
+    margin: 0 0 8px;
+    font-family: 'Outfit', 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38.4px;
+  }
+
+  .newsletter__copy p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+  }
+
+  .newsletter__form {
+    position: absolute;
+    top: 45.5px;
+    left: 639.5px;
+    width: 639px;
+  }
+
+  .newsletter__fields {
+    grid-template-columns: 233px 233px 157px;
+    gap: 8px;
+  }
+
+  .newsletter__fields input {
+    height: 42px;
+    border-radius: 4px;
+    padding-inline: 16px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .newsletter__fields .button {
+    width: 157px;
+    height: 42px;
+    border-radius: 8px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .terms-check {
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .terms-check input {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* Footer — absolute desktop positions from frame 11602:672 */
+  .footer__main {
+    position: relative;
+    display: block;
+    height: 282px;
+    min-height: 282px;
+  }
+
+  .footer__about {
+    position: absolute;
+    top: 61.5px;
+    left: 0;
+    width: 354px;
+    height: 159px;
+  }
+
+  .footer__logo {
+    width: 164px;
+    height: 48px;
+    margin-bottom: 18px;
+  }
+
+  .footer__about p {
+    width: 354px;
+    height: 42px;
+    margin: 0 0 27px;
+    font-size: 12px;
+    line-height: 21px;
+  }
+
+  .socials {
+    gap: 26px;
+  }
+
+  .footer__divider {
+    position: absolute;
+    top: 42px;
+    left: 444px;
+    height: 198px;
+  }
+
+  .footer__links {
+    position: absolute;
+    top: 83px;
+    left: 534px;
+    display: grid;
+    width: 631px;
+    grid-template-columns: 121px 150px 160px;
+    column-gap: 100px;
+  }
+
+  .footer__links h3 {
+    height: 16px;
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .footer__links a {
+    margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .footer__bottom {
+    height: 47px;
+    min-height: 47px;
+  }
+
+  /* Modal reference is 769 x 299 with 50% overlay. */
+  .modal-backdrop {
+    background: rgba(0, 0, 0, .5);
+  }
+}
