@@ -1,3 +1,5 @@
+import { assets } from '../assets';
+
 const groups = [
   ['Institucional', 'Sobre Nós', 'Movimento', 'Trabalhe conosco'],
   ['Ajuda', 'Suporte', 'Fale Conosco', 'Perguntas Frequentes'],
@@ -27,12 +29,12 @@ export default function NewsletterFooter() {
       <footer className="footer">
         <div className="footer__main shell">
           <div className="footer__about">
-            <img src="/assets/logo.png" alt="Econverse" className="footer__logo" />
+            <img src={assets.logo} alt="Econverse" className="footer__logo" />
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div className="socials" aria-label="Redes sociais">
-              <a href="#top" aria-label="Instagram"><img src="/assets/instagram.svg" alt="" /></a>
-              <a href="#top" aria-label="Facebook"><img src="/assets/facebook.svg" alt="" /></a>
-              <a href="#top" aria-label="LinkedIn"><img src="/assets/linkedin.svg" alt="" /></a>
+              <a href="#top" aria-label="Instagram"><img src={assets.instagram} alt="" /></a>
+              <a href="#top" aria-label="Facebook"><img src={assets.facebook} alt="" /></a>
+              <a href="#top" aria-label="LinkedIn"><img src={assets.linkedin} alt="" /></a>
             </div>
           </div>
           <div className="footer__divider" aria-hidden="true" />

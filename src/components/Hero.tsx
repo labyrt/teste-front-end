@@ -1,7 +1,9 @@
+import { assets } from '../assets';
+
 export default function Hero() {
   return (
     <section className="hero" id="top" aria-label="Promoção principal">
-      <img className="hero__image" src="/assets/banner-hero.webp" alt="Promoções Black Friday" />
+      <img className="hero__image" src={assets.hero} alt="Promoções Black Friday" />
       <div className="hero__scrim" />
       <div className="hero__content shell">
         <h1>Venha conhecer nossas promoções</h1>

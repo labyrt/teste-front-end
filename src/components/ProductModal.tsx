@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Product } from '../types/product';
+import { assets } from '../assets';
 
 interface ProductModalProps {
   product: Product | null;
@@ -38,7 +39,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
     }}>
       <section className="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
         <button className="product-modal__close" type="button" onClick={onClose} aria-label="Fechar">
-          <img src="/assets/close.svg" alt="" />
+          <img src={assets.close} alt="" />
         </button>
 
         <div className="product-modal__media">

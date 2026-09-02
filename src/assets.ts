@@ -1,0 +1,29 @@
+const CHALLENGE_ASSETS = 'https://raw.githubusercontent.com/williamsimass/econverse-vitrine/main/src/assets';
+const UI_ASSETS = 'https://raw.githubusercontent.com/Epiled/econverse/main/src/assets/svg/icons-ui';
+
+export const assets = {
+  logo: `${CHALLENGE_ASSETS}/logo-econverse.svg`,
+  hero: `${CHALLENGE_ASSETS}/banner-hero.webp`,
+  partner: `${CHALLENGE_ASSETS}/banner-parceiros.webp`,
+  categories: {
+    tecnologia: `${CHALLENGE_ASSETS}/cat-tecnologia.png`,
+    supermercado: `${CHALLENGE_ASSETS}/cat-supermercado.png`,
+    bebidas: `${CHALLENGE_ASSETS}/cat-bebidas.png`,
+    ferramentas: `${CHALLENGE_ASSETS}/cat-ferramentas.png`,
+    saude: `${CHALLENGE_ASSETS}/cat-saude.png`,
+    esportes: `${CHALLENGE_ASSETS}/cat-esportes.png`,
+    moda: `${CHALLENGE_ASSETS}/cat-moda.png`,
+  },
+  shield: `${CHALLENGE_ASSETS}/icon-shield.svg`,
+  truck: `${CHALLENGE_ASSETS}/icon-truck.svg`,
+  wallet: `${CHALLENGE_ASSETS}/icon-wallet.svg`,
+  heart: `${CHALLENGE_ASSETS}/icon-heart.svg`,
+  user: `${CHALLENGE_ASSETS}/icon-user.svg`,
+  cart: `${CHALLENGE_ASSETS}/icon-cart.svg`,
+  crown: `${CHALLENGE_ASSETS}/icon-crown.svg`,
+  search: `${UI_ASSETS}/magnifying-glass.svg`,
+  close: `${UI_ASSETS}/close.svg`,
+  instagram: `${CHALLENGE_ASSETS}/icon-instagram.svg`,
+  facebook: `${CHALLENGE_ASSETS}/icon-facebook.svg`,
+  linkedin: `${CHALLENGE_ASSETS}/icon-linkedin.svg`,
+} as const;

@@ -1,9 +1,9 @@
-const icon = (name: string) => `/assets/${name}`;
+import { assets } from '../assets';
 
 const benefits = [
-  { icon: 'shield-check.svg', prefix: 'Compra', highlight: '100% segura' },
-  { icon: 'truck.svg', prefix: '', highlight: 'Frete grátis', suffix: 'acima de R$ 200' },
-  { icon: 'credit-card.svg', prefix: '', highlight: 'Parcele', suffix: 'suas compras' },
+  { icon: assets.shield, prefix: 'Compra', highlight: '100% segura' },
+  { icon: assets.truck, prefix: '', highlight: 'Frete grátis', suffix: 'acima de R$ 200' },
+  { icon: assets.wallet, prefix: '', highlight: 'Parcele', suffix: 'suas compras' },
 ];
 
 const navItems = [
@@ -21,7 +21,7 @@ export default function Header() {
       <div className="top-benefits" aria-label="Benefícios da loja">
         {benefits.map((benefit) => (
           <div className="benefit" key={`${benefit.highlight}-${benefit.prefix}`}>
-            <img src={icon(benefit.icon)} alt="" aria-hidden="true" />
+            <img src={benefit.icon} alt="" aria-hidden="true" />
             <span>
               {benefit.prefix && `${benefit.prefix} `}
               <strong>{benefit.highlight}</strong>
@@ -33,20 +33,20 @@ export default function Header() {
 
       <div className="header-main shell">
         <a className="brand" href="#top" aria-label="Econverse - início">
-          <img src="/assets/logo.png" alt="Econverse" />
+          <img src={assets.logo} alt="Econverse" />
         </a>
 
         <label className="search-field">
           <span className="sr-only">Buscar produtos</span>
           <input type="search" placeholder="O que você está buscando?" />
-          <img src={icon('magnifying-glass.svg')} alt="" aria-hidden="true" />
+          <img src={assets.search} alt="" aria-hidden="true" />
         </label>
 
         <div className="header-actions" aria-label="Ações da conta">
-          <button type="button" aria-label="Pedidos"><img src={icon('group.svg')} alt="" /></button>
-          <button type="button" aria-label="Favoritos"><img src={icon('heart.svg')} alt="" /></button>
-          <button type="button" aria-label="Minha conta"><img src={icon('user.svg')} alt="" /></button>
-          <button type="button" aria-label="Carrinho"><img src={icon('shopping-cart.svg')} alt="" /></button>
+          <button type="button" aria-label="Pedidos"><img src={assets.wallet} alt="" /></button>
+          <button type="button" aria-label="Favoritos"><img src={assets.heart} alt="" /></button>
+          <button type="button" aria-label="Minha conta"><img src={assets.user} alt="" /></button>
+          <button type="button" aria-label="Carrinho"><img src={assets.cart} alt="" /></button>
         </div>
       </div>
 
@@ -58,7 +58,7 @@ export default function Header() {
             </a>
           ))}
           <a className="subscription" href="#newsletter">
-            <img src={icon('crown.svg')} alt="" aria-hidden="true" />
+            <img src={assets.crown} alt="" aria-hidden="true" />
             Assinatura
           </a>
         </div>

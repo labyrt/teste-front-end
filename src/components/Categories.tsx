@@ -1,11 +1,13 @@
+import { assets } from '../assets';
+
 const categories = [
-  ['Tecnologia', 'cat-tecnologia.png'],
-  ['Supermercado', 'cat-supermercado.png'],
-  ['Bebidas', 'cat-bebidas.png'],
-  ['Ferramentas', 'cat-ferramentas.png'],
-  ['Saúde', 'cat-saude.png'],
-  ['Esportes e Fitness', 'cat-esportes.png'],
-  ['Moda', 'cat-moda.png'],
+  ['Tecnologia', assets.categories.tecnologia],
+  ['Supermercado', assets.categories.supermercado],
+  ['Bebidas', assets.categories.bebidas],
+  ['Ferramentas', assets.categories.ferramentas],
+  ['Saúde', assets.categories.saude],
+  ['Esportes e Fitness', assets.categories.esportes],
+  ['Moda', assets.categories.moda],
 ] as const;
 
 export default function Categories() {
@@ -14,7 +16,7 @@ export default function Categories() {
       <div className="categories__rail">
         {categories.map(([label, asset], index) => (
           <a className={`category-card ${index === 0 ? 'is-active' : ''}`} href="#produtos" key={label}>
-            <span className="category-card__icon"><img src={`/assets/${asset}`} alt="" aria-hidden="true" /></span>
+            <span className="category-card__icon"><img src={asset} alt="" aria-hidden="true" /></span>
             <span>{label}</span>
           </a>
         ))}
