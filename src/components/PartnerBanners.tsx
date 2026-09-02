@@ -1,0 +1,17 @@
+export default function PartnerBanners() {
+  return (
+    <section className="partners shell" aria-label="Parceiros">
+      {[0, 1].map((item) => (
+        <article className="partner-card" key={item}>
+          <img src="/assets/banner-parceiros.webp" alt="Ambiente de parceiro Econverse" />
+          <div className="partner-card__overlay" />
+          <div className="partner-card__content">
+            <h2>Parceiros</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur</p>
+            <button type="button" className="button button--yellow">Confira</button>
+          </div>
+        </article>
+      ))}
+    </section>
+  );
+}
