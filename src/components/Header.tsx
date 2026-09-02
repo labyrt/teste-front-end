@@ -3,7 +3,7 @@ import { assets } from '../assets';
 const benefits = [
   { icon: assets.shield, prefix: 'Compra', highlight: '100% segura' },
   { icon: assets.truck, prefix: '', highlight: 'Frete grátis', suffix: 'acima de R$ 200' },
-  { icon: assets.wallet, prefix: '', highlight: 'Parcele', suffix: 'suas compras' },
+  { icon: assets.creditCard, prefix: '', highlight: 'Parcele', suffix: 'suas compras' },
 ];
 
 const navItems = [
@@ -43,7 +43,7 @@ export default function Header() {
         </label>
 
         <div className="header-actions" aria-label="Ações da conta">
-          <button type="button" aria-label="Pedidos"><img src={assets.wallet} alt="" /></button>
+          <button type="button" aria-label="Pedidos"><img src={assets.group} alt="" /></button>
           <button type="button" aria-label="Favoritos"><img src={assets.heart} alt="" /></button>
           <button type="button" aria-label="Minha conta"><img src={assets.user} alt="" /></button>
           <button type="button" aria-label="Carrinho"><img src={assets.cart} alt="" /></button>
