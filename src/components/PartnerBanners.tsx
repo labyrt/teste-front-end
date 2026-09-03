@@ -10,7 +10,7 @@ export default function PartnerBanners() {
           <div className="partner-card__content">
             <h2>Parceiros</h2>
             <p>Lorem ipsum dolor sit amet, consectetur</p>
-            <button type="button" className="button button--yellow">Confira</button>
+            <button type="button" className="button button--yellow">CONFIRA</button>
           </div>
         </article>
       ))}
