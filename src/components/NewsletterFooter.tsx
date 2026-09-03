@@ -17,11 +17,20 @@ export default function NewsletterFooter() {
           </div>
           <form className="newsletter__form" onSubmit={(event) => event.preventDefault()}>
             <div className="newsletter__fields">
-              <label><span className="sr-only">Nome</span><input type="text" placeholder="Digite seu nome" /></label>
-              <label><span className="sr-only">E-mail</span><input type="email" placeholder="Digite seu e-mail" /></label>
+              <label>
+                <span className="sr-only">Nome</span>
+                <input type="text" name="name" autoComplete="name" placeholder="Digite seu nome" required />
+              </label>
+              <label>
+                <span className="sr-only">E-mail</span>
+                <input type="email" name="email" autoComplete="email" placeholder="Digite seu e-mail" required />
+              </label>
               <button type="submit" className="button button--yellow">Inscrever</button>
             </div>
-            <label className="terms-check"><input type="checkbox" /> <span>Aceito os termos e condições</span></label>
+            <label className="terms-check">
+              <input type="checkbox" name="terms" required />
+              <span>Aceito os termos e condições</span>
+            </label>
           </form>
         </div>
       </section>
@@ -29,12 +38,12 @@ export default function NewsletterFooter() {
       <footer className="footer">
         <div className="footer__main shell">
           <div className="footer__about">
-            <img src={assets.logo} alt="Econverse" className="footer__logo" />
+            <img src={assets.logo} alt="Econverse" className="footer__logo" loading="lazy" decoding="async" />
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div className="socials" aria-label="Redes sociais">
-              <a href="#top" aria-label="Instagram"><img src={assets.instagram} alt="" /></a>
-              <a href="#top" aria-label="Facebook"><img src={assets.facebook} alt="" /></a>
-              <a href="#top" aria-label="LinkedIn"><img src={assets.linkedin} alt="" /></a>
+              <a href="#top" aria-label="Instagram"><img src={assets.instagram} alt="" loading="lazy" decoding="async" /></a>
+              <a href="#top" aria-label="Facebook"><img src={assets.facebook} alt="" loading="lazy" decoding="async" /></a>
+              <a href="#top" aria-label="LinkedIn"><img src={assets.linkedin} alt="" loading="lazy" decoding="async" /></a>
             </div>
           </div>
           <div className="footer__divider" aria-hidden="true" />
