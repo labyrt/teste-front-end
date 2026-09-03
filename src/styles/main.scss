@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Work+Sans:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Poppins:wght@300;400;500;600;700&family=Work+Sans:wght@500;600&display=swap');
 
 :root {
   font-family: 'Poppins', sans-serif;
@@ -160,23 +160,25 @@ img { display: block; max-width: 100%; }
 .footer__main { min-height: 282px; display: grid; grid-template-columns: 354px 1px 1fr; gap: 90px; align-items: center; }
 .footer__about { align-self: center; }
 .footer__logo { width: 164px; margin-bottom: 18px; }
-.footer__about p { width: 354px; margin: 0 0 22px; color: #777; font-size: 12px; line-height: 1.75; }
+.footer__about p { width: 354px; margin: 0 0 22px; color: #777; font-size: 14px; font-weight: 300; line-height: 21px; }
 .socials { display: flex; gap: 26px; align-items: center; }
 .socials a { width: 24px; height: 24px; display: grid; place-items: center; }
 .socials img { width: 24px; height: 24px; }
 .footer__divider { width: 1px; height: 198px; background: #dedede; }
 .footer__links { display: grid; grid-template-columns: repeat(3,1fr); gap: 70px; }
 .footer__links h3 { margin: 0 0 28px; font-size: 14px; color: #3f3f40; }
-.footer__links a { display: block; margin-bottom: 17px; font-size: 12px; color: #666; }
-.footer__bottom { min-height: 47px; display: grid; place-items: center; background: #f8f8f8; font-size: 10px; color: #777; text-align: center; padding: 10px 16px; }
+.footer__links a { display: block; margin-bottom: 17px; font-size: 14px; line-height: 21px; color: #666; }
+.footer__bottom { min-height: 47px; display: grid; place-items: center; background: #f8f8f8; font-size: 12px; font-weight: 300; color: #3f3f40; }
 
 /* Modal */
-.modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: rgba(0,0,0,.52); }
-.product-modal { position: relative; width: min(769px, 100%); min-height: 299px; border-radius: 6px; background: #fff; display: grid; grid-template-columns: 334px 1fr; gap: 0; box-shadow: 0 18px 45px rgba(0,0,0,.2); }
-.product-modal__close { position: absolute; right: 24px; top: 17px; width: 26px; height: 26px; padding: 5px; z-index: 3; }
-.product-modal__close img { width: 100%; height: 100%; }
-.product-modal__media { display: grid; place-items: center; padding: 46px 28px 38px 56px; }
-.product-modal__media img { width: 247px; height: 192px; object-fit: contain; }
+.modal-backdrop { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; padding: 24px; }
+.product-modal { position: relative; width: min(769px, calc(100vw - 32px)); min-height: 299px; background: #fff; border-radius: 4px; display: grid; grid-template-columns: 43% 57%; box-shadow: 0 18px 55px rgba(0,0,0,.18); }
+.product-modal__close { position: absolute; z-index: 2; right: 18px; top: 14px; width: 28px; height: 28px; padding: 4px; }
+.product-modal__close img { position: absolute; left: 50%; top: 50%; width: 18px; height: 2px; transform-origin: center; }
+.product-modal__close img:first-child { transform: translate(-50%,-50%) rotate(45deg); }
+.product-modal__close img:last-child { transform: translate(-50%,-50%) rotate(-45deg); }
+.product-modal__media { display: grid; place-items: center; padding: 34px 28px; }
+.product-modal__media img { max-width: 240px; height: 222px; object-fit: contain; }
 .product-modal__content { padding: 56px 51px 37px 56px; display: flex; flex-direction: column; gap: 32px; }
 .product-modal h2 { margin: 0 0 14px; font-size: 20px; line-height: 1.1; letter-spacing: 1px; font-weight: 400; color: #3f3f40; text-transform: uppercase; }
 .product-modal__content > div:first-child > strong { font-size: 20px; letter-spacing: 1px; }
