@@ -23,12 +23,25 @@ O projeto inclui:
 - categorias;
 - vitrines de produtos consumidas a partir do JSON oficial da Econverse;
 - carrosséis de produtos;
-- modal com os dados do produto selecionado e controle de quantidade;
+- modal dinâmico com os dados do produto selecionado e controle de quantidade;
 - banners de parceiros;
 - navegação por marcas;
 - newsletter e footer;
 - HTML semântico, metadados básicos de SEO e cuidados de acessibilidade;
 - estados de carregamento e erro da vitrine.
+
+## Assets e organização visual
+
+Os assets estáticos do layout estão versionados em `public/assets` e organizados por responsabilidade (`brand`, `header`, `categories`, `banners`, `navigation`, `modal` e `footer`). Eles foram exportados da referência de design fornecida para o teste, portanto a aplicação não depende de repositórios de terceiros para renderizar a interface.
+
+As imagens e informações dos produtos permanecem dinâmicas e são lidas da resposta do endpoint oficial, como solicitado no desafio.
+
+A folha de estilos possui um único ponto de entrada em `src/styles/index.scss`, que mantém uma ordem explícita de responsabilidades:
+
+1. `main.scss` — fundações, componentes e comportamento responsivo padrão;
+2. `pixel-perfect.scss` — calibração da referência desktop de 1440 px;
+3. `responsive.scss` — ajustes para larguras intermediárias, tablet e mobile;
+4. `fidelity.scss` — normalização pontual de métricas de navegador, tipografia e ícones.
 
 ## Como executar
 
@@ -43,7 +56,7 @@ O Vite exibirá no terminal o endereço local da aplicação.
 
 ## Como compilar e validar
 
-Execute o build de produção, que também realiza a verificação do TypeScript:
+O build de produção também executa a verificação do TypeScript:
 
 ```bash
 npm run build
