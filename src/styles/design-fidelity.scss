@@ -92,10 +92,11 @@
 }
 
 @media (min-width: 641px) {
+  /* Figma inspector: Popup group 769 × 299.26. */
   .product-modal {
     width: 769px;
-    height: 299px;
-    min-height: 299px;
+    height: 299.26px;
+    min-height: 299.26px;
   }
 
   /* Figma mask: 247 × 192.2. */
@@ -165,7 +166,7 @@
 }
 
 @media (min-width: 1181px) {
-  /* Hero inspector values. */
+  /* Figma inspector: Poppins SemiBold 48px. CSS SemiBold = weight 600. */
   .hero h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 48px;
@@ -293,12 +294,20 @@
     line-height: 21px;
   }
 
+  /* Keep the original column start positions while widening text boxes enough
+     for the Figma one-line labels (Trabalhe conosco / Perguntas Frequentes). */
+  .footer__links {
+    grid-template-columns: 150px 180px 160px;
+    column-gap: 70.5px;
+  }
+
   .footer__links h3 {
     color: #5f5f5f;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 16px;
+    white-space: nowrap;
   }
 
   .footer__links a {
@@ -307,6 +316,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+    white-space: nowrap;
   }
 
   /* The exported carousel asset already contains circle and shadow. */
