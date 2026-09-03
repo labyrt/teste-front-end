@@ -32,13 +32,17 @@
   transform: scaleX(-1);
 }
 
-/* Footer colors sampled from the supplied Home.png export. */
+/* Footer colors and copy metrics sampled from the supplied Home.png export. */
 .footer {
   background: #f4f4f4;
 }
 
 .footer__about p {
-  color: #3f3f40;
+  width: 354px;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
 }
 
 .footer__divider {
