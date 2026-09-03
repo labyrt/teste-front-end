@@ -78,7 +78,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- public/assets; then
+          if [ -z "$(git status --porcelain -- public/assets)" ]; then
             echo 'Assets already match the Figma exports.'
             exit 0
           fi
