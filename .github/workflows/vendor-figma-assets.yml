@@ -1,0 +1,85 @@
+name: Vendor Figma assets
+
+on:
+  push:
+    paths:
+      - '.github/workflows/vendor-figma-assets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  vendor-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download exact design assets
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p \
+            public/assets/brand \
+            public/assets/banners \
+            public/assets/categories \
+            public/assets/header \
+            public/assets/navigation \
+            public/assets/footer \
+            public/assets/modal
+
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/1fac0b08-c547-49d9-8ace-451c281a1280.svg' -o public/assets/brand/logo.svg
+
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/248d867d-b0bc-43ea-b6d6-1cf7785a9383.png' -o public/assets/banners/hero.png
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/26fbd709-3232-4254-9c23-4d535b20b89b.png' -o public/assets/banners/partner.png
+
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/2f2761eb-4b09-43e5-bf8a-9b6b45835e82.png' -o public/assets/categories/technology.png
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/6e07b922-b889-45e3-9129-ee67ca1acd5d.png' -o public/assets/categories/supermarket.png
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/73a81ab9-f23f-4e9c-b614-f7f94e1b9438.png' -o public/assets/categories/drinks.png
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/24a4fee4-5797-42c6-a857-fa09091c8e00.png' -o public/assets/categories/tools.png
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/d5e90317-c473-46bb-8c4c-6b6181013092.png' -o public/assets/categories/health.png
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/9d231357-439c-45e8-958a-327d3c49f1a7.png' -o public/assets/categories/sports.png
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/5a7f7028-e92a-4394-ac40-2a2803d2bcdb.png' -o public/assets/categories/fashion.png
+
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/0a3d6e63-1dca-4017-a488-152df4b5fab0.svg' -o public/assets/header/orders.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/bcd93e81-2568-4a9f-a3b3-a925dce55c94.svg' -o public/assets/header/heart.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/bd3c18fe-2c88-4ac8-a70b-93a010d1fb8f.svg' -o public/assets/header/user.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/4977982e-ed3a-4cc5-940b-07383a1b3078.svg' -o public/assets/header/cart.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/30ad535f-0f7b-4e31-aa8b-dd943e2258ed.svg' -o public/assets/header/crown.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/65068c49-348e-4119-9b3d-f48e816e6a46.svg' -o public/assets/header/shield.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/427f5078-40e8-4d0b-b1fe-3c0b8e046189.svg' -o public/assets/header/truck.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/e93418df-8e8f-4929-829b-d368efbf83c6.svg' -o public/assets/header/credit-card.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/9c6b4c4a-827b-4130-aa24-14942c60378a.svg' -o public/assets/header/search.svg
+
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/af07ee8c-32d8-41ba-a7bb-406a8ae8ae90.svg' -o public/assets/navigation/carousel-chevron.svg
+
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/1772411e-f99f-47ac-b356-08417fd000aa.svg' -o public/assets/footer/instagram.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/99c55730-80ce-4d96-a39d-9ec8449292d1.svg' -o public/assets/footer/facebook.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/86edadef-77be-4797-8275-61170c994890.svg' -o public/assets/footer/linkedin.svg
+
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/87b74738-c560-4f73-8ac3-59d418b0b671.svg' -o public/assets/modal/close-a.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/c1676c28-afa6-4a91-97d3-a8efc0286050.svg' -o public/assets/modal/close-b.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/d5058d75-17ab-4016-a8c6-1fc968c323d1.svg' -o public/assets/modal/plus.svg
+          curl -fsSL 'https://www.figma.com/api/mcp/asset/208a7890-5f9b-448d-84bb-ef680de1d65a.svg' -o public/assets/modal/minus.svg
+
+          find public/assets -type f -empty -print -quit | grep -q . && {
+            echo 'An exported asset is empty.' >&2
+            exit 1
+          } || true
+
+      - name: Commit vendored assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- public/assets; then
+            echo 'Assets already match the Figma exports.'
+            exit 0
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets
+          git commit -m 'Vendor exact Figma assets locally'
+          git push
