@@ -1,5 +1,5 @@
 /*
- * Final fidelity layer for details that must match the supplied Figma exports.
+ * Final fidelity layer for details measured directly in the supplied Figma inspector.
  * Structural layout lives in main.scss, desktop-reference.scss and responsive.scss.
  */
 
@@ -32,31 +32,13 @@
   transform: scaleX(-1);
 }
 
-/* Footer colors and typography verified against the Figma inspector. */
+/* Footer colors sampled from the supplied frame. */
 .footer {
   background: #f4f4f4;
 }
 
-.footer__about p {
-  width: 354px;
-  color: #757575;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 21px;
-}
-
 .footer__divider {
   background: #e1e1e1;
-}
-
-.footer__links h3,
-.footer__links a {
-  color: #5f5f5f;
-}
-
-.footer__links a {
-  font-size: 14px;
-  line-height: 21px;
 }
 
 .footer__bottom {
@@ -66,31 +48,9 @@
   font-weight: 300;
 }
 
-/* Modal typography and exact interaction-state rendering. */
+/* Modal interaction-state rendering. */
 .modal-backdrop {
-  /* Popup.png is a 54% black overlay over the page. */
   background: rgba(0, 0, 0, .54);
-}
-
-.product-modal h2 {
-  margin: 0;
-  line-height: 20px;
-}
-
-.product-modal__content > div:first-child > strong {
-  display: block;
-  margin-top: 18px;
-  font-weight: 700;
-  line-height: 20px;
-}
-
-.product-modal__description p {
-  font-weight: 500;
-}
-
-.product-modal__description a {
-  display: inline-block;
-  line-height: 11px;
 }
 
 .product-modal__close {
@@ -99,10 +59,6 @@
   padding: 0;
 }
 
-/*
- * Keep the original Figma line assets at their intrinsic 2px stroke height.
- * The more specific selector intentionally overrides the generic modal img rule.
- */
 .product-modal__close .product-modal__close-line {
   position: absolute;
   left: 50%;
@@ -136,7 +92,72 @@
 }
 
 @media (min-width: 641px) {
-  /* Exact X center from Popup.png: x=1069 / y=289 inside a 1440x834 frame. */
+  .product-modal {
+    width: 769px;
+    height: 299px;
+    min-height: 299px;
+  }
+
+  /* Figma mask: 247 × 192.2. */
+  .product-modal__media img {
+    width: 247px;
+    height: 192.2px;
+    max-width: 247px;
+    max-height: 192.2px;
+    object-fit: contain;
+  }
+
+  .product-modal h2 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+  }
+
+  /* Figma inspector: Poppins SemiBold 20px, 5% tracking. */
+  .product-modal__content > div:first-child > strong {
+    display: block;
+    margin-top: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 1px;
+  }
+
+  .product-modal__description p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 15.05px;
+    letter-spacing: .5px;
+  }
+
+  .product-modal__description a {
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 11px;
+    letter-spacing: .55px;
+  }
+
+  .quantity span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .product-modal__buy {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* Exact X position from Popup.png. */
   .product-modal__close {
     top: 6px;
     right: 20px;
@@ -144,10 +165,151 @@
 }
 
 @media (min-width: 1181px) {
-  /*
-   * The exported carousel asset already contains the white circle and drop shadow.
-   * Render the complete 40x40 SVG instead of nesting it inside a second circle.
-   */
+  /* Hero inspector values. */
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 50px;
+  }
+
+  .hero p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+  }
+
+  .hero p strong {
+    font-weight: 700;
+  }
+
+  .hero .button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: none;
+  }
+
+  /* Category label: Poppins Medium 14px. */
+  .category-card {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+  }
+
+  /* Product card values measured in Figma. */
+  .product-card {
+    box-shadow: 0 3px 19px rgba(0, 0, 0, .22);
+  }
+
+  .product-card__description {
+    width: 275.852px;
+    height: 46px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 23px;
+  }
+
+  .product-card__old-price {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .product-card__price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  .product-card__installment {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .product-card__shipping {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #3442b5;
+  }
+
+  .product-card__buy {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18.48px;
+  }
+
+  .section-title h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+  }
+
+  .section-title a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 23px;
+  }
+
+  /* Partner banner inspector values. */
+  .partner-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+  }
+
+  .partner-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .partner-card .button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+  }
+
+  /* Footer inspector: body Light 14, headings Bold 16, links Regular 14. */
+  .footer__about p {
+    width: 354px;
+    color: #757575;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+  }
+
+  .footer__links h3 {
+    color: #5f5f5f;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+  }
+
+  .footer__links a {
+    color: #5f5f5f;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+  }
+
+  /* The exported carousel asset already contains circle and shadow. */
   .carousel-arrow {
     width: 40px;
     height: 40px;
@@ -172,7 +334,6 @@
     right: -44px;
   }
 
-  /* Horizontal mirroring preserves the Figma shadow direction; rotate(180deg) did not. */
   .carousel-arrow--next img {
     transform: scaleX(-1);
   }
