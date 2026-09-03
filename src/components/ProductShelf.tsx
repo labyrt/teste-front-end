@@ -78,7 +78,7 @@ export default function ProductShelf({
 
           {!loading && !error && products.slice(0, 8).map((product, index) => {
             const oldPrice = product.price * 1.07;
-            const isInitiallyVisible = index < 4;
+            const isInitiallyVisible = showTabs && index < 4;
 
             return (
               <article className="product-card" key={product.id}>
