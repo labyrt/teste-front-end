@@ -38,10 +38,10 @@ As imagens e informações dos produtos permanecem dinâmicas e são lidas da re
 
 A folha de estilos possui um único ponto de entrada em `src/styles/index.scss`, que mantém uma ordem explícita de responsabilidades:
 
-1. `main.scss` — fundações, componentes e comportamento responsivo padrão;
-2. `pixel-perfect.scss` — calibração da referência desktop de 1440 px;
+1. `main.scss` — fundações e estilos dos componentes;
+2. `desktop-reference.scss` — calibração da referência desktop de 1440 px;
 3. `responsive.scss` — ajustes para larguras intermediárias, tablet e mobile;
-4. `fidelity.scss` — normalização pontual de métricas de navegador, tipografia e ícones.
+4. `browser-fidelity.scss` — normalização pontual de métricas de navegador, tipografia e ícones.
 
 ## Como executar
 

@@ -2,10 +2,10 @@
 @use './main';
 
 // Exact desktop calibration against the supplied 1440px Figma frame.
-@use './pixel-perfect';
+@use './desktop-reference';
 
 // Intermediate viewport and mobile behavior.
 @use './responsive';
 
 // Browser-level text and icon metric normalization.
-@use './fidelity';
+@use './browser-fidelity';
