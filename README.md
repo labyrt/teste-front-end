@@ -10,6 +10,7 @@ Implementação do teste técnico para a vaga de Desenvolvedor(a) Front-End Jr d
 - TypeScript
 - Vite
 - Sass/SCSS
+- Vitest + React Testing Library
 - Sem bibliotecas de UI
 
 ## Implementação
@@ -54,11 +55,37 @@ A folha de estilos possui um único ponto de entrada em `src/styles/index.scss`,
 Requisitos: Node.js 20+ e npm.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
 O Vite exibirá no terminal o endereço local da aplicação.
+
+## Testes automatizados
+
+A suíte utiliza Vitest, jsdom e React Testing Library. Os testes cobrem os comportamentos centrais pedidos no desafio:
+
+- carregamento e normalização do JSON de produtos;
+- tratamento de falha do endpoint;
+- renderização da vitrine e categorias;
+- seleção do produto correto pelos cards e pelo botão de compra;
+- conteúdo dinâmico do popup;
+- incremento e limite mínimo da quantidade;
+- fechamento do popup por botão e tecla `Esc`.
+
+Para executar a suíte uma vez:
+
+```bash
+npm test
+```
+
+Para desenvolvimento em modo watch:
+
+```bash
+npm run test:watch
+```
+
+O workflow de CI do GitHub executa `npm ci`, `npm test` e `npm run build` em pushes e pull requests para `main`, garantindo que testes, TypeScript e build de produção sejam validados juntos.
 
 ## Como compilar e validar
 
