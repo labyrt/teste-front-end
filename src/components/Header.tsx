@@ -43,7 +43,7 @@ export default function Header() {
         </label>
 
         <div className="header-actions" aria-label="Ações da conta">
-          <button type="button" aria-label="Pedidos"><img src={assets.wallet} alt="" /></button>
+          <button type="button" aria-label="Pedidos"><img src={assets.orders} alt="" /></button>
           <button type="button" aria-label="Favoritos"><img src={assets.heart} alt="" /></button>
           <button type="button" aria-label="Minha conta"><img src={assets.user} alt="" /></button>
           <button type="button" aria-label="Carrinho"><img src={assets.cart} alt="" /></button>
