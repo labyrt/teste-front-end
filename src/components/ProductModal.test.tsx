@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import ProductModal from './ProductModal';
@@ -15,25 +15,31 @@ describe('ProductModal', () => {
   it('renders the selected product data from the catalog', () => {
     render(<ProductModal product={product} onClose={vi.fn()} />);
 
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: product.productName })).toBeInTheDocument();
-    expect(screen.getByText(/14\.990,00/)).toBeInTheDocument();
-    expect(screen.getByText(product.descriptionShort)).toBeInTheDocument();
-    expect(screen.getByRole('img', { name: product.productName })).toHaveAttribute('src', product.photo);
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeInTheDocument();
+    expect(within(dialog).getByRole('heading', { name: product.productName })).toBeInTheDocument();
+    expect(within(dialog).getByText(/14\.990,00/)).toBeInTheDocument();
+
+    const description = dialog.querySelector('.product-modal__description');
+    expect(description).not.toBeNull();
+    expect(within(description as HTMLElement).getByText(product.descriptionShort)).toBeInTheDocument();
+
+    expect(within(dialog).getByRole('img', { name: product.productName })).toHaveAttribute('src', product.photo);
   });
 
   it('increments quantity and never decrements below one', async () => {
     const user = userEvent.setup();
     render(<ProductModal product={product} onClose={vi.fn()} />);
 
-    expect(screen.getByText('01')).toBeInTheDocument();
+    const quantity = screen.getByLabelText('Quantidade');
+    expect(within(quantity).getByText('01')).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: 'Aumentar quantidade' }));
-    expect(screen.getByText('02')).toBeInTheDocument();
+    await user.click(within(quantity).getByRole('button', { name: 'Aumentar quantidade' }));
+    expect(within(quantity).getByText('02')).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: 'Diminuir quantidade' }));
-    await user.click(screen.getByRole('button', { name: 'Diminuir quantidade' }));
-    expect(screen.getByText('01')).toBeInTheDocument();
+    await user.click(within(quantity).getByRole('button', { name: 'Diminuir quantidade' }));
+    await user.click(within(quantity).getByRole('button', { name: 'Diminuir quantidade' }));
+    expect(within(quantity).getByText('01')).toBeInTheDocument();
   });
 
   it('closes with Escape and with the close button', async () => {
