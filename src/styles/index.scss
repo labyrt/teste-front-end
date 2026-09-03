@@ -1,0 +1,11 @@
+// Global foundations and responsive component defaults.
+@import './main';
+
+// Exact desktop calibration against the supplied 1440px Figma frame.
+@import './pixel-perfect';
+
+// Intermediate viewport and mobile behavior.
+@import './responsive';
+
+// Browser-level text and icon metric normalization.
+@import './fidelity';
