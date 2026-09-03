@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Poppins:wght@300&display=swap');
-
 /*
  * Desktop calibration against Figma Home 11602:16 (1440 x 4660).
  * main.scss keeps the responsive behavior; these rules lock the 1440px reference
@@ -509,7 +507,8 @@
     width: 354px;
     height: 42px;
     margin: 0 0 27px;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 300;
     line-height: 21px;
   }
 
@@ -543,13 +542,15 @@
 
   .footer__links a {
     margin-bottom: 16px;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 21px;
   }
 
   .footer__bottom {
     height: 47px;
     min-height: 47px;
+    font-size: 12px;
+    font-weight: 300;
   }
 
   /* Modal reference is 769 x 299 with 50% overlay. */
