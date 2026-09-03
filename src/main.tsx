@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './styles/main.scss';
-import './styles/pixel-perfect.scss';
-import './styles/final-audit.scss';
-import './styles/runtime-fidelity.scss';
+import './styles/index.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
