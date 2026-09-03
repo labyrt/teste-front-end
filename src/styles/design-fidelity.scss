@@ -137,6 +137,15 @@
 }
 
 @media (min-width: 1181px) {
+  /* Footer navigation in Home.png uses 16px headings and 14px links. */
+  .footer__links h3 {
+    font-size: 16px;
+  }
+
+  .footer__links a {
+    font-size: 14px;
+  }
+
   /*
    * The exported carousel asset already contains the white circle and drop shadow.
    * Render the complete 40x40 SVG instead of nesting it inside a second circle.
