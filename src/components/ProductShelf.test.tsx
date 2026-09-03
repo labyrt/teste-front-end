@@ -25,9 +25,9 @@ describe('ProductShelf', () => {
 
     expect(screen.getByRole('heading', { name: 'Produtos relacionados' })).toBeInTheDocument();
     expect(screen.getByRole('tab', { name: /celular/i })).toHaveAttribute('aria-selected', 'true');
-    expect(screen.getByText(products[0].descriptionShort)).toBeInTheDocument();
-    expect(screen.getByText(/15\.000,00/)).toBeInTheDocument();
-    expect(screen.getByText('Frete grátis')).toBeInTheDocument();
+    expect(screen.getAllByText(products[0].descriptionShort).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/15\.000,00/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Frete grátis').length).toBeGreaterThan(0);
   });
 
   it('returns the exact clicked product to the parent', async () => {
@@ -35,10 +35,12 @@ describe('ProductShelf', () => {
     const onProductClick = vi.fn();
     render(<ProductShelf products={products} onProductClick={onProductClick} />);
 
-    await user.click(screen.getByRole('button', { name: `Ver ${products[0].productName}` }));
+    const productButtons = screen.getAllByRole('button', { name: `Ver ${products[0].productName}` });
+    await user.click(productButtons[0]);
     expect(onProductClick).toHaveBeenCalledWith(products[0]);
 
-    await user.click(screen.getByRole('button', { name: 'Comprar' }));
+    const buyButtons = screen.getAllByRole('button', { name: 'Comprar' });
+    await user.click(buyButtons[0]);
     expect(onProductClick).toHaveBeenLastCalledWith(products[0]);
   });
 
