@@ -1,56 +1,71 @@
 # Teste Front-End Jr — Econverse
 
-Implementação do teste técnico para a vaga de Desenvolvedor(a) Front-End Jr da Econverse.
+Esta é a minha implementação do teste técnico de Front-End Jr da Econverse.
 
 **Demo:** https://teste-front-end-econverse-lucy.vercel.app/
 
-## Stack
+Meu foco foi reproduzir o layout do Figma com o máximo de fidelidade possível, sem transformar a página em uma imagem estática. Os produtos continuam vindo do JSON oficial, o modal usa o item realmente selecionado e a interface mantém comportamento responsivo em telas menores.
+
+## Tecnologias
 
 - React
 - TypeScript
 - Vite
-- Sass/SCSS
-- Vitest + React Testing Library
-- Sem bibliotecas de UI
+- Sass / SCSS
+- Vitest
+- React Testing Library
 
-## Implementação
+Não utilizei Bootstrap, Foundation, Tailwind ou outra biblioteca de UI.
 
-A interface foi desenvolvida a partir do layout oficial do Figma, preservando a referência desktop de 1440 px e adicionando comportamento responsivo para resoluções menores.
+## O que foi implementado
 
-O projeto inclui:
-
-- header, benefícios, busca e navegação;
-- hero promocional;
-- categorias;
-- vitrines de produtos consumidas a partir do JSON oficial da Econverse;
-- carrosséis de produtos;
-- modal dinâmico com os dados do produto selecionado e controle de quantidade;
+- header com benefícios, busca, navegação e ações da conta;
+- banner principal;
+- navegação por categorias;
+- vitrines consumindo os produtos do JSON oficial;
+- carrosséis horizontais;
+- modal com nome, imagem, descrição e preço do produto clicado;
+- controle de quantidade no modal;
 - banners de parceiros;
 - navegação por marcas;
 - newsletter e footer;
-- HTML semântico, metadados básicos de SEO e cuidados de acessibilidade;
-- estados de carregamento e erro da vitrine.
+- estados de carregamento e erro;
+- HTML semântico e cuidados básicos de acessibilidade e SEO;
+- layout responsivo para tablet e mobile.
 
-## Conteúdo dinâmico e referência visual
+## Fidelidade ao Figma
 
-O Figma utiliza textos e valores ilustrativos, como `Lorem ipsum`, `R$ 28,90` nos cards e `R$ 1.499,90` no popup. Esses valores são placeholders de layout.
+A referência principal de desktop foi trabalhada em 1440 px. Além da comparação visual, conferi no próprio inspetor do Figma medidas, pesos tipográficos, tamanhos, espaçamentos e dimensões de elementos importantes do layout e do popup.
 
-Conforme a especificação oficial do desafio, nome, descrição, imagem e preço exibidos nas vitrines e no modal são obtidos em runtime do JSON oficial e correspondem ao produto efetivamente selecionado. Por isso, o conteúdo de produto não é hardcoded apenas para reproduzir os placeholders do Figma; a geometria, tipografia, cores, espaçamentos, botões e estados visuais seguem a referência.
+Os arquivos de estilo estão separados por responsabilidade:
 
-## Assets e organização visual
+- `main.scss`: estilos-base e componentes;
+- `desktop-reference.scss`: medidas específicas da referência desktop;
+- `responsive.scss`: comportamento fora do frame de 1440 px;
+- `design-fidelity.scss`: ajustes finais medidos no Figma;
+- `semantic-classes.scss`: nomes semânticos usados no JSX, sem duplicar as regras pixel-perfect.
 
-Os assets estáticos do layout estão versionados em `public/assets` e organizados por responsabilidade (`brand`, `header`, `categories`, `banners`, `navigation`, `modal` e `footer`). Eles foram exportados da referência de design fornecida para o teste, portanto a aplicação não depende de repositórios de terceiros para renderizar a interface.
+Nas classes dos componentes, procurei usar nomes que indiquem diretamente a responsabilidade do elemento, como `header-search`, `product-carousel__track`, `footer__social-links` e `product-modal__quantity`. Mantive apenas algumas classes utilitárias curtas quando elas realmente representam uma função genérica.
 
-As imagens e informações dos produtos permanecem dinâmicas e são lidas da resposta do endpoint oficial, como solicitado no desafio.
+## Produtos e conteúdo dinâmico
 
-A folha de estilos possui um único ponto de entrada em `src/styles/index.scss`, que mantém uma ordem explícita de responsabilidades:
+O Figma contém textos e preços ilustrativos, como `Lorem ipsum`, `R$ 28,90` e `R$ 1.499,90`. Esses valores servem como referência visual do componente.
 
-1. `main.scss` — fundações e componentes;
-2. `desktop-reference.scss` — calibração da referência desktop de 1440 px;
-3. `responsive.scss` — ajustes para larguras intermediárias, tablet e mobile;
-4. `design-fidelity.scss` — fidelidade final de cores, orientação de ícones e métricas específicas do design.
+Na aplicação, nome, imagem, descrição e preço dos produtos são obtidos do JSON oficial da Econverse. Por isso, ao abrir um produto, o popup mostra os dados daquele item em vez de substituir o conteúdo dinâmico pelos placeholders do Figma.
 
-## Como executar
+Endpoint utilizado:
+
+`https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`
+
+Em produção utilizo um rewrite para `/api/produtos.json`, mantendo a chamada same-origin e evitando problemas de CORS.
+
+## Assets
+
+Os assets estáticos usados no layout estão em `public/assets`, organizados por contexto (`brand`, `header`, `categories`, `banners`, `navigation`, `modal` e `footer`).
+
+As imagens dos produtos permanecem externas porque fazem parte do conteúdo retornado pela API do teste.
+
+## Como rodar o projeto
 
 Requisitos: Node.js 20+ e npm.
 
@@ -59,66 +74,55 @@ npm ci
 npm run dev
 ```
 
-O Vite exibirá no terminal o endereço local da aplicação.
+Depois disso, o Vite mostra no terminal o endereço local da aplicação.
 
-## Testes automatizados
+## Testes
 
-A suíte utiliza Vitest, jsdom e React Testing Library. Os testes cobrem os comportamentos centrais pedidos no desafio:
+A suíte cobre os comportamentos principais da entrega: carregamento do JSON, tratamento de erro, renderização da vitrine, escolha do produto, conteúdo do modal, controle de quantidade e fechamento do popup.
 
-- carregamento e normalização do JSON de produtos;
-- tratamento de falha do endpoint;
-- renderização da vitrine e categorias;
-- seleção do produto correto pelos cards e pelo botão de compra;
-- conteúdo dinâmico do popup;
-- incremento e limite mínimo da quantidade;
-- fechamento do popup por botão e tecla `Esc`.
-
-Para executar a suíte uma vez:
+Para executar:
 
 ```bash
 npm test
 ```
 
-Para desenvolvimento em modo watch:
+Para executar em modo watch:
 
 ```bash
 npm run test:watch
 ```
 
-O workflow de CI do GitHub executa `npm ci`, `npm test` e `npm run build` em pushes e pull requests para `main`, garantindo que testes, TypeScript e build de produção sejam validados juntos.
-
-## Como compilar e validar
-
-O build de produção também executa a verificação do TypeScript:
+## Build de produção
 
 ```bash
 npm run build
 ```
 
-Para conferir localmente o resultado compilado:
+O comando executa a verificação do TypeScript antes de gerar o build do Vite.
+
+Para visualizar o build localmente:
 
 ```bash
 npm run preview
 ```
 
-Checklist manual recomendado após iniciar a aplicação:
+O workflow de CI do GitHub também executa `npm ci`, `npm test` e `npm run build` a cada alteração enviada para `main` ou pull request direcionado a ela.
 
-1. confirmar o carregamento da vitrine de produtos;
-2. clicar em diferentes produtos e conferir se título, descrição, imagem e preço do modal correspondem ao item selecionado;
-3. testar os controles de quantidade do modal;
-4. fechar o modal pelo botão, pela tecla `Esc` e clicando no backdrop;
-5. validar os carrosséis e o sentido correto das setas;
-6. conferir cores, tipografia, footer e layout em 1440 px contra os exports `Home` e `Popup` do Figma;
-7. conferir o comportamento em tablet/mobile.
+## Estrutura principal
 
-## Dados
+```text
+src/
+├── components/      # componentes da interface
+├── hooks/           # carregamento e normalização dos produtos
+├── styles/          # SCSS base, responsivo e calibração do Figma
+├── test/            # configuração dos testes
+├── types/           # tipos TypeScript
+├── App.tsx
+└── assets.ts
 
-A vitrine utiliza o endpoint oficial informado no teste:
+public/assets/        # imagens e ícones do layout
+```
 
-`https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`
+## Validação final
 
-Em produção, a aplicação utiliza um rewrite em `/api/produtos.json` para manter a integração same-origin e evitar problemas de CORS.
-
-## Design
-
-Referência oficial: **Teste Front-End Jr — Econverse** no Figma. O layout desktop e o estado do modal foram tratados como referências visuais para a calibração de espaçamentos, tipografia, cores, botões e dimensões.
+Antes da entrega, revisei a aplicação em 1440 px, o estado do modal, tipografia, sombras, cores, ícones, footer, dados dinâmicos, testes e build de produção.

@@ -1,6 +1,6 @@
 import { assets } from '../assets';
 
-const categories = [
+const shoppingCategories = [
   ['Tecnologia', assets.categories.tecnologia],
   ['Supermercado', assets.categories.supermercado],
   ['Bebidas', assets.categories.bebidas],
@@ -12,9 +12,9 @@ const categories = [
 
 export default function Categories() {
   return (
-    <section className="categories shell" aria-label="Compre por categoria">
+    <section className="categories layout-container" aria-label="Compre por categoria">
       <div className="categories__rail">
-        {categories.map(([label, asset], index) => (
+        {shoppingCategories.map(([label, asset], index) => (
           <a className={`category-card ${index === 0 ? 'is-active' : ''}`} href="#produtos" key={label}>
             <span className="category-card__icon"><img src={asset} alt="" aria-hidden="true" /></span>
             <span>{label}</span>

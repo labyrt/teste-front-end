@@ -7,7 +7,7 @@ interface ProductModalProps {
   onClose: () => void;
 }
 
-function currency(value: number) {
+function formatCurrency(value: number) {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 }
 
@@ -56,7 +56,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
         <div className="product-modal__content">
           <div>
             <h2 id="modal-product-title">{product.productName}</h2>
-            <strong>{currency(product.price)}</strong>
+            <strong>{formatCurrency(product.price)}</strong>
           </div>
 
           <div className="product-modal__description">
@@ -65,7 +65,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           </div>
 
           <div className="product-modal__actions">
-            <div className="quantity" aria-label="Quantidade">
+            <div className="product-modal__quantity" aria-label="Quantidade">
               <button
                 type="button"
                 onClick={() => setQuantity((value) => Math.max(1, value - 1))}

@@ -1,6 +1,6 @@
 import { assets } from '../assets';
 
-const groups = [
+const footerLinkGroups = [
   ['Institucional', 'Sobre Nós', 'Movimento', 'Trabalhe conosco'],
   ['Ajuda', 'Suporte', 'Fale Conosco', 'Perguntas Frequentes'],
   ['Termos', 'Termos e Condições', 'Política de Privacidade', 'Troca e Devolução'],
@@ -10,7 +10,7 @@ export default function NewsletterFooter() {
   return (
     <>
       <section className="newsletter" id="newsletter">
-        <div className="newsletter__inner shell">
+        <div className="newsletter__inner layout-container">
           <div className="newsletter__copy">
             <h2>Inscreva-se na nossa newsletter</h2>
             <p>Assine a nossa newsletter e receba as novidades e conteúdos exclusivos da Econverse.</p>
@@ -18,16 +18,16 @@ export default function NewsletterFooter() {
           <form className="newsletter__form" onSubmit={(event) => event.preventDefault()}>
             <div className="newsletter__fields">
               <label>
-                <span className="sr-only">Nome</span>
+                <span className="visually-hidden">Nome</span>
                 <input type="text" name="name" autoComplete="name" placeholder="Digite seu nome" required />
               </label>
               <label>
-                <span className="sr-only">E-mail</span>
+                <span className="visually-hidden">E-mail</span>
                 <input type="email" name="email" autoComplete="email" placeholder="Digite seu e-mail" required />
               </label>
               <button type="submit" className="button button--yellow">Inscrever</button>
             </div>
-            <label className="terms-check">
+            <label className="newsletter__terms">
               <input type="checkbox" name="terms" required />
               <span>Aceito os termos e condições</span>
             </label>
@@ -36,11 +36,11 @@ export default function NewsletterFooter() {
       </section>
 
       <footer className="footer">
-        <div className="footer__main shell">
+        <div className="footer__main layout-container">
           <div className="footer__about">
             <img src={assets.logo} alt="Econverse" className="footer__logo" loading="lazy" decoding="async" />
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div className="socials" aria-label="Redes sociais">
+            <div className="footer__social-links" aria-label="Redes sociais">
               <a href="#top" aria-label="Instagram"><img src={assets.instagram} alt="" loading="lazy" decoding="async" /></a>
               <a href="#top" aria-label="Facebook"><img src={assets.facebook} alt="" loading="lazy" decoding="async" /></a>
               <a href="#top" aria-label="LinkedIn"><img src={assets.linkedin} alt="" loading="lazy" decoding="async" /></a>
@@ -48,7 +48,7 @@ export default function NewsletterFooter() {
           </div>
           <div className="footer__divider" aria-hidden="true" />
           <nav className="footer__links" aria-label="Links do rodapé">
-            {groups.map(([title, ...items]) => (
+            {footerLinkGroups.map(([title, ...items]) => (
               <div key={title}>
                 <h3>{title}</h3>
                 {items.map((item) => <a href="#top" key={item}>{item}</a>)}

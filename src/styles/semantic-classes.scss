@@ -1,0 +1,38 @@
+@use './main';
+@use './desktop-reference';
+@use './responsive';
+@use './design-fidelity';
+
+/*
+ * Semantic class names used by the React markup.
+ * The calibrated selectors stay in their original style layers so the measured
+ * Figma values keep a single source of truth. @extend exposes clearer names
+ * without duplicating or changing any visual declaration.
+ */
+.layout-container { @extend .shell; }
+.visually-hidden { @extend .sr-only; }
+
+.store-benefits-bar { @extend .top-benefits; }
+.store-benefit { @extend .benefit; }
+.header-content { @extend .header-main; }
+.header-logo { @extend .brand; }
+.header-search { @extend .search-field; }
+.main-navigation { @extend .category-nav; }
+.main-navigation__links { @extend .category-nav__scroll; }
+.main-navigation__subscription { @extend .subscription; }
+
+.product-section__heading { @extend .section-title; }
+.product-carousel__track { @extend .product-rail; }
+.product-carousel__arrow { @extend .carousel-arrow; }
+.product-carousel__arrow--previous { @extend .carousel-arrow--prev; }
+.product-carousel__arrow--next { @extend .carousel-arrow--next; }
+.product-shelf__status { @extend .product-state; }
+
+.partner-banners { @extend .partners; }
+.brand-navigation { @extend .brands; }
+.brand-navigation__list { @extend .brands__rail; }
+.brand-navigation__item { @extend .brand-bubble; }
+
+.newsletter__terms { @extend .terms-check; }
+.footer__social-links { @extend .socials; }
+.product-modal__quantity { @extend .quantity; }

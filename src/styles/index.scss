@@ -9,3 +9,6 @@
 
 // Final visual fidelity: colors, icon orientation and browser metric normalization.
 @use './design-fidelity';
+
+// Semantic class names exposed to the React components.
+@use './semantic-classes';

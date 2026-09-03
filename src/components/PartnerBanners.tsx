@@ -2,7 +2,7 @@ import { assets } from '../assets';
 
 export default function PartnerBanners() {
   return (
-    <section className="partners shell" aria-label="Parceiros">
+    <section className="partner-banners layout-container" aria-label="Parceiros">
       {[0, 1].map((item) => (
         <article className="partner-card" key={item}>
           <img src={assets.partner} alt="Ambiente de parceiro Econverse" />
