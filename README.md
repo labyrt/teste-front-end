@@ -1,66 +1,77 @@
-# Teste Econverse: Vaga Desenvolvedor Front-End
+# Teste Front-End Jr — Econverse
 
-### Vem ser #Econverse!
+Implementação do teste técnico para a vaga de Desenvolvedor(a) Front-End Jr da Econverse.
 
-Segue abaixo as instruções para a execução do teste.
+**Demo:** https://teste-front-end-econverse-lucy.vercel.app/
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub.
-- Desenvolva a página conforme as **Especificações Técnicas**
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail gustavo.cipriano@econverse.com.br com o título **Teste Vaga FrontEnd**
+## Stack
 
-## Especificações Técnicas
-- Desenvolver a pagina em React e TypeScript conforme o layout fornecido.
-- Montar a vitrine de produtos consumindo as informações dos produtos em JSON.
-- Desenvolver a interação ao clicar em um produto conforme layout, abrindo modal com as principais informações do produto.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
-
-## Pontos Extras
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
-
-## O que avaliaremos em seu teste
-- Organização do projeto
-- Lógica do código
-- Componentização
-- Alcance dos objetivos propostos
+- React
+- TypeScript
+- Vite
+- Sass/SCSS
+- Sem bibliotecas de UI
 
 ## Implementação
 
-Projeto desenvolvido em React + TypeScript com Vite e Sass, sem biblioteca de UI.
+A interface foi desenvolvida a partir do layout oficial do Figma, preservando a referência desktop de 1440 px e adicionando comportamento responsivo para resoluções menores.
 
-### Como executar
+O projeto inclui:
+
+- header, benefícios, busca e navegação;
+- hero promocional;
+- categorias;
+- vitrines de produtos consumidas a partir do JSON oficial da Econverse;
+- carrosséis de produtos;
+- modal com os dados do produto selecionado e controle de quantidade;
+- banners de parceiros;
+- navegação por marcas;
+- newsletter e footer;
+- HTML semântico, metadados básicos de SEO e cuidados de acessibilidade;
+- estados de carregamento e erro da vitrine.
+
+## Como executar
+
+Requisitos: Node.js 20+ e npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Build de produção:
+O Vite exibirá no terminal o endereço local da aplicação.
+
+## Como compilar e validar
+
+Execute o build de produção, que também realiza a verificação do TypeScript:
 
 ```bash
 npm run build
+```
+
+Para conferir localmente o resultado compilado:
+
+```bash
 npm run preview
 ```
 
-### Funcionalidades entregues
+Checklist manual recomendado após iniciar a aplicação:
 
-- Header, busca e navegação conforme o Figma.
-- Hero promocional e categorias.
-- Três vitrines consumindo o JSON oficial da Econverse.
-- Modal de produto com controle de quantidade.
-- Banners de parceiros e navegação por marcas.
-- Newsletter e footer.
-- HTML semântico e SEO básico.
-- Responsividade para desktop, tablet e mobile, preservando a referência de 1440 px do Figma.
+1. confirmar o carregamento da vitrine de produtos;
+2. clicar em diferentes produtos e conferir se o modal recebe os dados do item selecionado;
+3. testar os controles de quantidade do modal;
+4. fechar o modal pelo botão, pela tecla `Esc` e clicando no backdrop;
+5. validar os carrosséis e os links de navegação;
+6. conferir o layout em 1440 px e também em tablet/mobile.
 
-### Dados
+## Dados
 
-A vitrine consome os produtos em tempo de execução de:
+A vitrine utiliza o endpoint oficial informado no teste:
 
 `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`
 
-**Boa sorte! ;)**
+Em produção, a aplicação utiliza um rewrite em `/api/produtos.json` para manter a integração same-origin e evitar problemas de CORS.
+
+## Design
+
+Referência oficial: **Teste Front-End Jr — Econverse** no Figma. O layout desktop e o estado do modal foram tratados como referências visuais para a calibração de espaçamentos, tipografia, cores, botões e dimensões.
