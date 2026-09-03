@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/vendor-figma-assets.yml'
+  pull_request:
+    types: [opened, synchronize]
   workflow_dispatch:
 
 permissions:
@@ -11,10 +13,13 @@ permissions:
 
 jobs:
   vendor-assets:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Download exact design assets
         shell: bash
@@ -82,4 +87,4 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/assets
           git commit -m 'Vendor exact Figma assets locally'
-          git push
+          git push origin HEAD:${{ github.head_ref || github.ref_name }}
