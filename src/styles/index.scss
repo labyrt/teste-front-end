@@ -7,5 +7,5 @@
 // Intermediate viewport and mobile behavior.
 @use './responsive';
 
-// Browser-level text and icon metric normalization.
-@use './browser-fidelity';
+// Final visual fidelity: colors, icon orientation and browser metric normalization.
+@use './design-fidelity';
